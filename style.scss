@@ -1,0 +1,80 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
+}
+$fontColor: #09777D;
+@mixin title {
+    display: flex;
+    align-items: center;
+    padding: 10px 1rem;
+    img{
+        width: 60px;
+        height: 60px;
+    }
+}
+@mixin button($fontSize, $color, $backColor) {
+    input{
+        color: $color;
+        text-align: center;
+        font-size: $fontSize;
+        padding: 0.5rem 2rem;
+        margin: 20px auto;
+        border-radius: 10px;
+        background-color: $backColor;
+        cursor: pointer;
+    }
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    h1{
+        @include title()
+    }
+    ul{
+        display: flex;
+        align-items: center;
+        padding-right: 1rem;
+        list-style-type: none;
+        li{
+            padding: 0.5rem;
+            font-size: 20px;
+            color: $fontColor;
+        }
+    }
+}
+section.cover{
+    width: 100%;
+    height: calc(100% - 70px);
+    overflow: hidden;
+    div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: calc(100% - 70px);
+        background-color: rgba(0,0,0,0.3);
+        position: absolute;
+        p{
+            color: white;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        @include button(
+            1.5rem,
+            white, 
+            rgba(0, 255, 255, 0.815)
+            );
+    }
+    img{
+        width: 100%;
+        margin-top: -70px;
+        object-fit: cover;
+    }
+}
