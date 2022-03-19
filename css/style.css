@@ -49,7 +49,7 @@ nav ul {
 nav ul li {
   padding: 0.5rem;
   font-size: 20px;
-  color: #09777D;
+  color: #0EA0A8;
 }
 
 section.cover {
@@ -75,10 +75,11 @@ section.cover div {
   position: absolute;
 }
 
-section.cover div p {
+section.cover div h1 {
   color: white;
   font-size: 2.5rem;
   text-align: center;
+  font-weight: normal;
 }
 
 section.cover div input {
@@ -97,5 +98,18 @@ section.cover img {
   margin-top: -70px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+main h1 {
+  margin: 0 auto;
+  text-align: center;
+}
+
+main h1:first-child {
+  padding-top: 2rem;
+}
+
+main h1:last-child {
+  color: #0EA0A8;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,10 +1,5 @@
-* {
-    padding: 0;
-    margin: 0;
-    border: none;
-    box-sizing: border-box;
-}
-$fontColor: #09777D;
+$fontColor: #0EA0A8;
+
 @mixin title {
     display: flex;
     align-items: center;
@@ -26,7 +21,12 @@ $fontColor: #09777D;
         cursor: pointer;
     }
 }
-
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
+}
 html, body{
     width: 100%;
     height: 100%;
@@ -61,10 +61,11 @@ section.cover{
         height: calc(100% - 70px);
         background-color: rgba(0,0,0,0.3);
         position: absolute;
-        p{
+        h1{
             color: white;
             font-size: 2.5rem;
             text-align: center;
+            font-weight: normal
         }
         @include button(
             1.5rem,
@@ -76,5 +77,17 @@ section.cover{
         width: 100%;
         margin-top: -70px;
         object-fit: cover;
+    }
+}
+main{
+    h1{
+        margin: 0 auto;
+        text-align: center;
+        &:first-child{
+            padding-top: 2rem;
+        }
+        &:last-child{
+            color: $fontColor;
+        }
     }
 }
