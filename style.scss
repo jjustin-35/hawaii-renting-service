@@ -44,6 +44,7 @@ h1, h2, h3, h4, h5{
 nav{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     h1{
         @include title()
     }
@@ -86,7 +87,7 @@ section.cover{
             );
     }
     img{
-        width: 100%;
+        width: 1280px;
         margin-top: -70px;
         object-fit: cover;
     }

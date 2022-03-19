@@ -23,6 +23,8 @@ nav {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 nav h1 {
@@ -106,7 +108,7 @@ section.cover div input {
 }
 
 section.cover img {
-  width: 100%;
+  width: 1280px;
   margin-top: -70px;
   -o-object-fit: cover;
      object-fit: cover;
