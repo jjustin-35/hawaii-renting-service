@@ -21,6 +21,12 @@ $fontColor: #0EA0A8;
         cursor: pointer;
     }
 }
+@mixin flexColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -54,9 +60,7 @@ section.cover{
     height: calc(100% - 70px);
     overflow: hidden;
     div{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        @include flexColumn();
         width: 100%;
         height: calc(100% - 70px);
         background-color: rgba(0,0,0,0.3);
@@ -88,6 +92,24 @@ main{
         }
         &:last-child{
             color: $fontColor;
+        }
+    }
+    section{
+        display: flex;
+        margin: 2rem 0;
+        justify-content: space-evenly;
+        div{
+            @include flexColumn();
+            width: 20%;
+            img{
+                width: 100%;
+                border-radius: 50%;
+            }
+            h2, p{
+                padding-top: 1rem;
+                text-align: center;
+            }
+            @include button(1.5rem,white ,$fontColor)
         }
     }
 }
