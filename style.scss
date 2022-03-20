@@ -26,32 +26,11 @@ $fontColor: #0EA0A8;
     flex-direction: column;
     justify-content: center;
 }
-
-* {
-    padding: 0;
-    margin: 0;
-    border: none;
-    box-sizing: border-box;
-    font-family: 'Noto Sans TC', sans-serif;
-}
-html, body{
-    width: 100%;
-    height: 100%;
-}
-h1, h2, h3, h4, h5{
-    font-weight: normal;
-}
-nav{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    h1{
-        @include title()
-    }
+@mixin options($fontColor){
     ul{
         display: flex;
         align-items: center;
-        padding-right: 1rem;
+        padding:0 1rem;
         list-style-type: none;
         li{
             display: flex;
@@ -64,9 +43,52 @@ nav{
         }
     }
 }
+
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+html, body{
+    width: 100%;
+    // height: 100%;
+}
+h1, h2, h3, h4, h5{
+    font-weight: normal;
+}
+nav{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: white;
+    h1{
+        @include title()
+    }
+    @include options($fontColor);
+    // ul{
+    //     display: flex;
+    //     align-items: center;
+    //     padding-right: 1rem;
+    //     list-style-type: none;
+    //     li{
+    //         display: flex;
+    //         a{
+    //             padding: 0.5rem;
+    //             font-size: 20px;
+    //             color: $fontColor;
+    //             text-decoration: none;
+    //         }
+    //     }
+}
+
 section.cover{
     width: 100%;
-    height: calc(100% - 70px);
+    height: calc(100vh - 70px);
     overflow: hidden;
     div{
         @include flexColumn();
@@ -128,6 +150,30 @@ main{
                     margin-top: 2.5rem;
                 }
             }
+        }
+    }
+}
+footer{
+    background-color: #BDBDBD;
+    @include flexColumn();
+    align-items: center;
+    h1{
+        font-size: 1.5em;
+        color: white;
+        @include title();
+        justify-content: center;
+    }
+    @include options(white);
+    ul.nav{
+        width: 35%;
+        justify-content: space-evenly;
+    }
+    ul.socialMedia{
+        margin-top: 2rem;
+        width: 25%;
+        justify-content: space-evenly;
+        img{
+            width: 3vw;
         }
     }
 }
