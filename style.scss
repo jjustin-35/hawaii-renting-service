@@ -15,7 +15,7 @@ $fontColor: #0EA0A8;
         text-align: center;
         font-size: $fontSize;
         padding: 0.5rem 2rem;
-        margin: 20px auto;
+        margin: 1rem auto;
         border-radius: 10px;
         background-color: $backColor;
         cursor: pointer;
@@ -109,16 +109,25 @@ main{
         justify-content: space-evenly;
         div{
             @include flexColumn();
+            align-items: center;
             width: 20%;
             img{
-                width: 100%;
+                width: 75%;
                 border-radius: 50%;
             }
             h2, p{
                 padding-top: 1rem;
                 text-align: center;
             }
-            @include button(1.5rem,white ,$fontColor)
+            @include button(1.5rem,white ,$fontColor);
+            input{
+                margin-bottom: 2rem;
+            }
+            &:nth-child(2), &:nth-child(3){
+                input{
+                    margin-top: 2.5rem;
+                }
+            }
         }
     }
 }
