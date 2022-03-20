@@ -9,9 +9,17 @@
     <!-- 方便google搜尋到 -->
     <meta name="robots" content="index, follow"/>
     <meta name="description" content="我們提供夏威夷旅遊租借服務，例如衝浪板、車子、帳篷等等。" />
+    <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/571e65be0d.js" crossorigin="anonymous"></script>
+    <!-- Jquery -->
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="./Icons/black logo.svg" type="image/x-icon">
     <meta name="author" content="Justin">
     <title>夏威夷旅遊租借服務 | 夏威夷最方便快速的旅遊出租服務網站</title>
@@ -23,7 +31,8 @@
             <img src="./Icons/black logo.svg" alt="夏威夷旅遊租借服務">
             夏威夷旅遊租借服務
         </h1>
-        <ul>
+        <div class="mobileNav" id="mobileNav"><i class="fa-solid fa-bars"></i></div>
+        <ul id="navUl">
             <li><a href="#">首頁</a></li>
             <li><a href="./aboutUs.html">關於我們</a></li>
             <li><a href="./login.html">會員登入</a></li>
@@ -80,5 +89,6 @@
             <li><a href="#"><img src="./Icons/white_youtube.png" alt="white_youtube"></a></li>
         </ul>
     </footer>
+    <script src="./DOM.js"></script>
 </body>
 </html>

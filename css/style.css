@@ -46,6 +46,14 @@ nav h1 img {
   height: 5vw;
 }
 
+nav div.mobileNav {
+  display: none;
+  font-size: 1.5rem;
+  color: #0EA0A8;
+  padding: 10px 1rem;
+  cursor: pointer;
+}
+
 nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -135,6 +143,8 @@ main section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   margin: 2rem 0;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
@@ -265,5 +275,45 @@ footer ul.socialMedia {
 
 footer ul.socialMedia img {
   width: 3vw;
+}
+
+@media screen and (max-width: 660px) {
+  nav div.mobileNav {
+    display: block;
+  }
+  nav ul#navUl {
+    width: 100%;
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    display: none;
+  }
+  nav ul#navUl li {
+    width: 100%;
+  }
+  nav ul#navUl li a {
+    text-align: center;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    width: 100%;
+  }
+  nav ul#navUl li a:hover {
+    color: white;
+    background-color: #0EA0A8;
+  }
+  main section div {
+    width: 100%;
+  }
+  main section div img {
+    width: 40%;
+  }
 }
 /*# sourceMappingURL=style.css.map */

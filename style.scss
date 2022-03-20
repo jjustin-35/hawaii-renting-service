@@ -69,21 +69,14 @@ nav{
     h1{
         @include title()
     }
+    div.mobileNav{
+        display: none;
+        font-size: 1.5rem;
+        color: $fontColor;
+        padding: 10px 1rem;
+        cursor: pointer;
+    }
     @include options($fontColor);
-    // ul{
-    //     display: flex;
-    //     align-items: center;
-    //     padding-right: 1rem;
-    //     list-style-type: none;
-    //     li{
-    //         display: flex;
-    //         a{
-    //             padding: 0.5rem;
-    //             font-size: 20px;
-    //             color: $fontColor;
-    //             text-decoration: none;
-    //         }
-    //     }
 }
 
 section.cover{
@@ -127,6 +120,7 @@ main{
     }
     section{
         display: flex;
+        flex-wrap: wrap;
         margin: 2rem 0;
         justify-content: space-evenly;
         div{
@@ -174,6 +168,38 @@ footer{
         justify-content: space-evenly;
         img{
             width: 3vw;
+        }
+    }
+}
+
+@media screen and (max-width: 660px) {
+    nav{
+        div.mobileNav{
+            display:block;
+        }
+        ul#navUl{
+            width: 100%;
+            padding: 0;
+            @include flexColumn();
+            display: none;
+            li{                  
+                width: 100%;
+                a{
+                    text-align: center;
+                    transition: all 0.25s ease;
+                    width: 100%;
+                }
+                a:hover{
+                    color: white;
+                    background-color: $fontColor ;
+                }
+            }
+        }
+    }
+    main section div{
+        width: 100%;
+        img{
+            width: 40%;
         }
     }
 }
