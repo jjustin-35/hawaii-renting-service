@@ -1,11 +1,12 @@
-let ul = $('#navUl')
-
-// 手機視窗，漢堡選單
-$('#mobileNav').click(function () {
-    ul.slideToggle()
-})
-
+// 在元素載入完成時處理函數
 $(document).ready(function () {
+    let ul = $('#navUl')
+
+    // 手機視窗，漢堡選單
+    $('#mobileNav').click(function () {
+        ul.slideToggle()
+    })
+
     let $window = $(window)
 // 視窗改變時，nav會自動調整
     function changeNav() {
@@ -25,19 +26,22 @@ $(document).ready(function () {
     $window.resize(changeNav)
 // 滾動時，nav隱藏，滑鼠碰觸上方時彈出
     let $nav = $('#nav')
-    let $hideNav = $('#hideNav')
+    let $titleOption = $('#titleOption')
 
-    $window.on('scroll', function () {
-        $nav.slideUp()
-        $hideNav.show()
+    function scrollToggle () {
+        $titleOption.slideUp()
+        $nav.addClass('nav')
         if ($window.scrollTop() == 0) {
-            $nav.slideDown()
-            $hideNav.hide()
+            $titleOption.slideDown()
         }
-    })
-    
-    $hideNav.mouseenter(function () {
-        $nav.slideDown()
-        // $nav.slideUp()
+    }
+    $window.on('scroll', scrollToggle)
+
+    $nav.mouseover(function () {
+        $window.off('scroll')
+        $titleOption.slideDown()
+    }).mouseout(function () {
+        $titleOption.slideDown()
+        $window.on('scroll', scrollToggle)
     })
 })
