@@ -61,7 +61,7 @@ h1, h2, h3, h4, h5{
 nav{
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 200;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -81,30 +81,36 @@ nav{
 
 section.cover{
     width: 100%;
-    height: calc(100vh - 70px);
-    overflow: hidden;
-    div{
-        @include flexColumn();
+    min-height: 90vh;
+    background-image: url('../Pictures/pexels-photo-416676.jpeg');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    div.filter{
+        background-color: rgba(0,0,0,0.2);
         width: 100%;
-        height: calc(100% - 70px);
-        background-color: rgba(0,0,0,0.3);
+        min-height:90vh;
         position: absolute;
+        top: 0; 
+        z-index: 0;
+    }
+    div.text{
+        width: 100%;
+        min-height: 90vh;
+        position: relative;
+        z-index: 100;
+        @include flexColumn();
         h1{
             color: white;
             font-size: 2.5rem;
             text-align: center;
-            font-weight: normal
+            font-weight: normal;
         }
         @include button(
             1.5rem,
             white, 
             rgba(0, 255, 255, 0.815)
             );
-    }
-    img{
-        width: 1280px;
-        margin-top: -70px;
-        object-fit: cover;
     }
 }
 main{

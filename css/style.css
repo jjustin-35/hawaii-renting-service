@@ -19,7 +19,7 @@ nav {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 200;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -80,11 +80,27 @@ nav ul li a {
 
 section.cover {
   width: 100%;
-  height: calc(100vh - 70px);
-  overflow: hidden;
+  min-height: 90vh;
+  background-image: url("../Pictures/pexels-photo-416676.jpeg");
+  background-position: center;
+  background-size: cover;
+  position: relative;
 }
 
-section.cover div {
+section.cover div.filter {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  min-height: 90vh;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+}
+
+section.cover div.text {
+  width: 100%;
+  min-height: 90vh;
+  position: relative;
+  z-index: 100;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -95,20 +111,16 @@ section.cover div {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 100%;
-  height: calc(100% - 70px);
-  background-color: rgba(0, 0, 0, 0.3);
-  position: absolute;
 }
 
-section.cover div h1 {
+section.cover div.text h1 {
   color: white;
   font-size: 2.5rem;
   text-align: center;
   font-weight: normal;
 }
 
-section.cover div input {
+section.cover div.text input {
   color: white;
   text-align: center;
   font-size: 1.5rem;
@@ -117,13 +129,6 @@ section.cover div input {
   border-radius: 10px;
   background-color: rgba(0, 255, 255, 0.815);
   cursor: pointer;
-}
-
-section.cover img {
-  width: 1280px;
-  margin-top: -70px;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 
 main h1 {
