@@ -24,24 +24,36 @@ $(document).ready(function () {
     }
     // 視窗改變時執行
     $window.resize(changeNav)
-// 滾動時，nav隱藏，滑鼠碰觸上方時彈出
+// 滾動時，nav隱藏，滑鼠碰觸上方時彈出、向上按鈕show/off
     let $nav = $('#nav')
     let $titleOption = $('#titleOption')
+    let $up = $('#up')
+
+    function hoverToggle(){
+        $nav.mouseover(function () {
+            $titleOption.slideDown()
+        })
+        $titleOption.mouseout(function () {
+            $titleOption.slideUp()
+        })
+    }
 
     function scrollToggle () {
         $titleOption.slideUp()
         $nav.addClass('nav')
-        if ($window.scrollTop() == 0) {
+        $up.show()
+        let scrollTop = $window.scrollTop()
+        if (scrollTop < 100) {
+            $up.hide()
+        }
+        if (scrollTop == 0) {
             $titleOption.slideDown()
         }
     }
     $window.on('scroll', scrollToggle)
 
-    $nav.mouseover(function () {
-        $window.off('scroll')
-        $titleOption.slideDown()
-    }).mouseout(function () {
-        $titleOption.slideDown()
-        $window.on('scroll', scrollToggle)
+// 回到頂端
+    $up.click(function () {
+        $window.scrollTop('0')
     })
 })
