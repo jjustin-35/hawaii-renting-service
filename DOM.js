@@ -29,25 +29,32 @@ $(document).ready(function () {
     let $titleOption = $('#titleOption')
     let $up = $('#up')
 
-    function hoverToggle(){
-        $nav.mouseover(function () {
-            $titleOption.slideDown()
-        })
-        $titleOption.mouseout(function () {
-            $titleOption.slideUp()
-        })
+    function hoverToggle(boolean) {
+        if(boolean){    
+            $nav.on('mouseover', function () {
+                $titleOption.slideDown()
+            })
+            $titleOption.on("mouseout",function () {
+                $titleOption.slideUp()
+            })
+        } else {
+            $nav.off('mouseover')
+            $titleOption.off('mouseout')
+        }
     }
 
     function scrollToggle () {
         $titleOption.slideUp()
         $nav.addClass('nav')
         $up.show()
+        hoverToggle(true)
         let scrollTop = $window.scrollTop()
         if (scrollTop < 100) {
             $up.hide()
         }
         if (scrollTop == 0) {
             $titleOption.slideDown()
+            hoverToggle(false)
         }
     }
     $window.on('scroll', scrollToggle)
