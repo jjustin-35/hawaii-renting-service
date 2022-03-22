@@ -30,7 +30,6 @@ $(document).ready(function () {
     function hoverToggle(boolean) {
         if (boolean) {
             let allowDown = true
-            let allowUp = false
             $nav.on('mouseenter', function () {
                 if (allowDown) {
                     $titleOption.slideDown()
