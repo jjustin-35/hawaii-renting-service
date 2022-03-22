@@ -80,13 +80,14 @@ nav{
     z-index: 200;
     &.nav{
             width: 100%;
-            height: 10vh;
+            height: 8vh;
     }
     section{
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
         background-color: white;
+        box-shadow: 0 8px 6px -6px black;
         h1{
             @include title()
         }
@@ -176,7 +177,7 @@ main{
     }
 }
 footer{
-    background-color: #BDBDBD;
+    background-color: #8a8989;
     @include flexColumn();
     align-items: center;
     h1{
@@ -199,6 +200,23 @@ footer{
         }
     }
 }
+// scrollbar css
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $fontColor; 
+    border-radius: 10px;
+  }
 
 @media screen and (max-width: 700px) {
     div.up{
