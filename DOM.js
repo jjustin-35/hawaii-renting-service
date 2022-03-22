@@ -10,15 +10,13 @@ $(document).ready(function () {
     let $window = $(window)
 // 視窗改變時，nav會自動調整
     function changeNav() {
-        if ($window.width()> 660) {
+        if ($window.width()> 700) {
             ul.css({
                 'display': 'flex',
-                'flex-direction': 'row'
             })
         } else {
             ul.css({
                 'display': 'none',
-                'flex-direction': 'column' 
             })
         }
     }
@@ -26,20 +24,33 @@ $(document).ready(function () {
     $window.resize(changeNav)
 // 滾動時，nav隱藏，滑鼠碰觸上方時彈出、向上按鈕show/off
     let $nav = $('#nav')
-    let $titleOption = $('#titleOption')
+    let $titleOption = $('section#titleOption')
     let $up = $('#up')
 
     function hoverToggle(boolean) {
-        if(boolean){    
-            $nav.on('mouseover', function () {
-                $titleOption.slideDown()
+        if (boolean) {
+            let allowDown = true
+            let allowUp = false
+            $nav.on('mouseenter', function () {
+                if (allowDown) {
+                    $titleOption.slideDown()
+                    allowDown = false
+                }
             })
-            $titleOption.on("mouseout",function () {
-                $titleOption.slideUp()
+            $titleOption.on('mouseleave', function (event) {
+                // 測試leave後的element是不是子元素
+                let relatedTarget = event.relatedTarget
+                let titleOption = document.getElementById('titleOption')
+                if (!$.contains(titleOption, relatedTarget)) {
+                    $titleOption.slideUp()
+                    setTimeout(function () {
+                        allowDown = true
+                    }, 500)
+                }
             })
         } else {
-            $nav.off('mouseover')
-            $titleOption.off('mouseout')
+            $nav.off('mouseenter')
+            $titleOption.off('mouseleave')
         }
     }
 
